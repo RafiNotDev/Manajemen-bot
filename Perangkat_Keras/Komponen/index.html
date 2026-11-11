@@ -1,0 +1,1117 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <title>Rafi | Personal Portfolio</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #080d1b;
+      --panel: #10182a;
+      --panel-light: #151f35;
+      --text: #f1f5ff;
+      --muted: #9ba8c2;
+      --blue: #6c8cff;
+      --purple: #a777ff;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #8ea7ff, #c09aff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,13,27,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+    }
+
+    .nav-links a.active {
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -9px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .music-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 13px;
+      color: white;
+      background: var(--panel-light);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: .82rem;
+      transition: .25s;
+      white-space: nowrap;
+    }
+
+    .music-btn:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .music-icon {
+      font-size: 1rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 680px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 50px;
+      padding-top: 75px;
+      padding-bottom: 85px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #b6c5ff;
+      background: rgba(108,140,255,.09);
+      border: 1px solid rgba(108,140,255,.2);
+      border-radius: 30px;
+      padding: 7px 14px;
+      font-size: .82rem;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #67e8a5;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #67e8a5;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      letter-spacing: -3px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 21px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: .9rem;
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(110deg, #5f82ff, #9671ff);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 30px rgba(108,140,255,.18);
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* PROFILE CARD */
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .profile-card {
+      width: min(100%, 365px);
+      position: relative;
+      text-align: center;
+      padding: 34px 25px;
+      background: linear-gradient(145deg, #141e34, #0d1425);
+      border: 1px solid rgba(151,169,255,.18);
+      border-radius: 28px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.25);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 28px;
+      background: linear-gradient(140deg, rgba(108,140,255,.2), transparent 45%, rgba(167,119,255,.16));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .avatar {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 3px solid rgba(151,169,255,.7);
+      background: #202b45;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9daeff;
+      font-size: 3.5rem;
+    }
+
+    .profile-card h2 {
+      font-size: 1.65rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-card > p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      color: #c7d1e8;
+      border-radius: 8px;
+      font-size: .76rem;
+    }
+
+    /* CLOCK */
+    .clock-section {
+      padding: 0 0 55px;
+    }
+
+    .clock-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 27px 35px;
+      background: linear-gradient(115deg, #121d34, #111629);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .clock-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 7px;
+    }
+
+    .clock-info p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .clock {
+      width: 145px;
+      height: 145px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      position: relative;
+      border: 3px solid #8299ff;
+      background: radial-gradient(circle, #172440, #0a1020 72%);
+      box-shadow: 0 0 28px rgba(108,140,255,.15),
+                  inset 0 0 18px rgba(108,140,255,.08);
+    }
+
+    .clock .number {
+      position: absolute;
+      font-size: .72rem;
+      font-weight: 600;
+      color: #dce4ff;
+      transform: translate(-50%, -50%);
+    }
+
+    .hand {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform-origin: bottom center;
+      border-radius: 10px;
+      transform: translateX(-50%) rotate(0deg);
+    }
+
+    .hour-hand {
+      width: 5px;
+      height: 35px;
+      background: #f1f5ff;
+    }
+
+    .minute-hand {
+      width: 3px;
+      height: 49px;
+      background: #88a0ff;
+    }
+
+    .second-hand {
+      width: 2px;
+      height: 53px;
+      background: #c69cff;
+    }
+
+    .clock-center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border: 2px solid #8fa4ff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+    }
+
+    /* GENERAL SECTIONS */
+    section.content-section {
+      padding: 85px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading .small-label {
+      color: #9eafff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -1px;
+      margin: 10px 0 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .panel {
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .panel h3 {
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skill {
+      background: rgba(108,140,255,.09);
+      border: 1px solid rgba(108,140,255,.18);
+      color: #c6d1ff;
+      padding: 8px 12px;
+      border-radius: 9px;
+      font-size: .83rem;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(108,140,255,.45);
+    }
+
+    .project-cover {
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(167,119,255,.35), transparent 40%),
+        linear-gradient(135deg, #1c2b4b, #101426);
+    }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: .87rem;
+      margin-bottom: 16px;
+    }
+
+    .project-link {
+      color: #a9baff;
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    /* CONTACT */
+    .contact-card {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 45px 28px;
+      background: linear-gradient(145deg, #141f38, #101527);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 530px;
+      margin: 0 auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #192541;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      z-index: 50;
+      font-size: 1.1rem;
+    }
+
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 45px;
+        padding-top: 65px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .profile-card {
+        max-width: 320px;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        min-height: 68px;
+        flex-wrap: wrap;
+        padding: 13px 0;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 9px 0 2px;
+      }
+
+      .nav-links a {
+        font-size: .78rem;
+      }
+
+      .nav-links a.active::after {
+        bottom: -5px;
+      }
+
+      .music-btn {
+        padding: 8px 10px;
+        font-size: .75rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: .92rem;
+      }
+
+      .clock-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 27px 20px;
+      }
+
+      section.content-section {
+        padding: 65px 0;
+      }
+
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .panel {
+        padding: 23px;
+      }
+
+      .project-cover {
+        height: 160px;
+      }
+
+      .contact-card {
+        padding: 35px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MUSIK LATAR
+       Simpan file musik sebagai music.mp3
+       di folder yang sama dengan index.html. -->
+  <audio id="bgMusic" autoplay loop preload="auto" playsinline>
+    <source src="https://n.uguu.se/nXYnQzxS.mp4" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="container">
+      <a class="logo" href="#beranda">RAFI<span class="gradient-text">.</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#beranda" class="active">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#proyek">Proyek</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="music-btn" id="musicToggle" type="button"
+                aria-label="Putar atau jeda musik">
+          <span class="music-icon" id="musicIcon">♫</span>
+          <span id="musicLabel">Memuat musik...</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- BERANDA -->
+    <section class="container hero" id="beranda">
+      <div>
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          Selamat datang di portofolio saya
+        </div>
+
+        <h1>
+          Halo, saya
+          <span class="gradient-text">Rafi.</span>
+        </h1>
+
+        <p class="hero-description">
+          Saya sedang belajar dunia pemrograman dan pengembangan web.
+          Saya suka membuat sesuatu yang kreatif, menarik, dan bermanfaat
+          menggunakan teknologi.
+        </p>
+
+        <div class="button-row">
+          <a href="#proyek" class="btn btn-primary">Lihat Proyek ↗</a>
+          <a href="#tentang" class="btn btn-secondary">Tentang Saya</a>
+        </div>
+      </div>
+
+      <div class="profile-wrap">
+        <div class="profile-card">
+          <!-- Ganti foto-profil.jpg dengan foto kamu -->
+          <img
+            class="avatar"
+            src="https://n.uguu.se/SYmZBgLx.jpg"
+            alt="Foto profil Rafi"
+            onerror="this.style.display='none';document.getElementById('avatarFallback').style.display='flex';"
+          >
+
+          <div class="avatar avatar-placeholder" id="avatarFallback"
+               style="display:none;">R</div>
+
+          <h2>Rafi <span class="gradient-text">Rfrdnap</span></h2>
+          <p>Pelajar · Web Developer Pemula</p>
+
+          <div class="profile-tags">
+            <span class="tag">💻 Coding</span>
+            <span class="tag">🎨 Desain</span>
+            <span class="tag">🚀 Belajar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAM ANALOG -->
+    <section class="container clock-section">
+      <div class="clock-card">
+        <div class="clock-info">
+          <h3>Waktu Saat Ini <span class="gradient-text">⏱</span></h3>
+          <p id="digitalClock">Memuat waktu...</p>
+          <p id="currentDate" style="margin-top:5px;">Memuat tanggal...</p>
+          <p style="margin-top:13px;">Waktu lokal perangkat kamu.</p>
+        </div>
+
+        <div class="clock" id="analogClock" aria-label="Jam analog">
+          <div class="hand hour-hand" id="hourHand"></div>
+          <div class="hand minute-hand" id="minuteHand"></div>
+          <div class="hand second-hand" id="secondHand"></div>
+          <div class="clock-center"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="content-section" id="tentang">
+      <div class="container">
+        <div class="section-heading">
+          <span class="small-label">Kenali Saya</span>
+          <h2>Tentang <span class="gradient-text">Saya</span></h2>
+          <p>Sedikit cerita tentang diri saya dan hal-hal yang sedang saya pelajari.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel">
+            <h3>👋 Siapa Saya?</h3>
+            <p>
+              Halo! Saya Rafi. Saya tertarik pada teknologi, desain antarmuka,
+              dan pemrograman web. Saya terus belajar untuk mengembangkan
+              kemampuan dan membuat proyek yang lebih baik.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>🧠 Keahlian Saya</h3>
+            <p>Teknologi yang sedang saya pelajari dan gunakan:</p>
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Responsive Design</span>
+              <span class="skill">UI Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYEK -->
+    <section class="content-section" id="proyek">
+      <div class="container">
+        <div class="section-heading">
+          <span class="small-label">Karya Saya</span>
+          <h2>Proyek <span class="gradient-text">Pilihan</span></h2>
+          <p>Beberapa contoh proyek yang bisa kamu ganti dengan karya milikmu sendiri.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-cover">⌘</div>
+            <div class="project-content">
+              <h3>Website Portfolio</h3>
+              <p>Website pribadi responsif untuk memperkenalkan diri dan menampilkan karya.</p>
+              <a class="project-link" href="#kontak">Lihat detail ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">▦</div>
+            <div class="project-content">
+              <h3>Aplikasi Kalkulator</h3>
+              <p>Kalkulator sederhana dengan antarmuka modern menggunakan JavaScript.</p>
+              <a class="project-link" href="#kontak">Lihat detail ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover">✦</div>
+            <div class="project-content">
+              <h3>Eksperimen UI</h3>
+              <p>Eksperimen desain antarmuka dengan warna, animasi, dan tata letak.</p>
+              <a class="project-link" href="#kontak">Lihat detail ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="content-section" id="kontak">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Mari Terhubung <span class="gradient-text">✦</span></h2>
+          <p>
+            Punya ide, saran, atau ingin melihat proyek saya?
+            Hubungi saya melalui media sosial yang kamu gunakan.
+          </p>
+
+          <div class="contact-links">
+            <!-- Ganti # dengan tautan akun kamu -->
+            <a href="https://github.com/" target="_blank"
+               rel="noopener noreferrer" class="btn btn-primary">
+              GitHub ↗
+            </a>
+
+            <a href="https://www.instagram.com/rfrdnap" target="_blank"
+               rel="noopener noreferrer" class="btn btn-secondary">
+              Instagram ↗
+            </a>
+
+            <button class="btn btn-secondary" id="emailButton" type="button">
+              Salin Email
+            </button>
+          </div>
+          <p id="emailStatus" style="margin:15px auto 0;font-size:.8rem;"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> RafiBukanDeveloper</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Kembali ke atas" type="button">↑</button>
+
+  <script>
+    // ====================================
+    // MUSIK OTOMATIS + TOMBOL PLAY / PAUSE
+    // ====================================
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicLabel = document.getElementById("musicLabel");
+    const musicIcon = document.getElementById("musicIcon");
+
+    let userPausedMusic = false;
+
+    function updateMusicButton() {
+      if (!bgMusic.paused) {
+        musicIcon.textContent = "♫";
+        musicLabel.textContent = "Pause Musik";
+        musicToggle.title = "Jeda musik";
+      } else {
+        musicIcon.textContent = "▶";
+        musicLabel.textContent = "Play Musik";
+        musicToggle.title = "Putar musik";
+      }
+    }
+
+    async function tryPlayMusic() {
+      if (userPausedMusic) return;
+
+      try {
+        await bgMusic.play();
+        updateMusicButton();
+      } catch (error) {
+        // Browser mungkin memblokir autoplay dengan suara.
+        musicIcon.textContent = "▶";
+        musicLabel.textContent = "Play Musik";
+      }
+    }
+
+    musicToggle.addEventListener("click", async () => {
+      if (bgMusic.paused) {
+        userPausedMusic = false;
+
+        try {
+          await bgMusic.play();
+          updateMusicButton();
+        } catch (error) {
+          musicLabel.textContent = "Periksa file musik";
+        }
+      } else {
+        userPausedMusic = true;
+        bgMusic.pause();
+        updateMusicButton();
+      }
+    });
+
+    bgMusic.addEventListener("play", updateMusicButton);
+    bgMusic.addEventListener("pause", updateMusicButton);
+
+    // Mencoba autoplay ketika halaman dimuat.
+    document.addEventListener("DOMContentLoaded", tryPlayMusic);
+    window.addEventListener("load", tryPlayMusic);
+
+    // Jika autoplay ditolak, coba lagi setelah interaksi pertama.
+    // Pemutaran tetap bergantung pada kebijakan browser.
+    const interactionEvents = ["pointerdown", "keydown", "touchstart"];
+
+    function retryAfterInteraction() {
+      if (!userPausedMusic && bgMusic.paused) {
+        tryPlayMusic();
+      }
+
+      interactionEvents.forEach(eventName => {
+        document.removeEventListener(eventName, retryAfterInteraction);
+      });
+    }
+
+    interactionEvents.forEach(eventName => {
+      document.addEventListener(
+        eventName,
+        retryAfterInteraction,
+        { once: true, passive: true }
+      );
+    });
+
+    // ====================================
+    // JAM ANALOG REAL-TIME
+    // ====================================
+    const clock = document.getElementById("analogClock");
+
+    // Membuat angka 1 sampai 12 pada jam analog.
+    for (let i = 1; i <= 12; i++) {
+      const number = document.createElement("span");
+      const angle = (i * 30 - 90) * Math.PI / 180;
+      const radius = 57;
+
+      number.className = "number";
+      number.textContent = i;
+      number.style.left = `${72.5 + radius * Math.cos(angle)}px`;
+      number.style.top = `${72.5 + radius * Math.sin(angle)}px`;
+
+      clock.appendChild(number);
+    }
+
+    function updateClock() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours();
+
+      document.getElementById("hourHand").style.transform =
+        `translateX(-50%) rotate(${hours % 12 * 30 + minutes * 0.5}deg)`;
+
+      document.getElementById("minuteHand").style.transform =
+        `translateX(-50%) rotate(${minutes * 6 + seconds * 0.1}deg)`;
+
+      document.getElementById("secondHand").style.transform =
+        `translateX(-50%) rotate(${seconds * 6}deg)`;
+
+      document.getElementById("digitalClock").textContent =
+        now.toLocaleTimeString("id-ID", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        });
+
+      document.getElementById("currentDate").textContent =
+        now.toLocaleDateString("id-ID", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // ====================================
+    // NAVIGASI AKTIF SAAT SCROLL
+    // ====================================
+    const navLinks = document.querySelectorAll(".nav-links a");
+    const pageSections = document.querySelectorAll("main section[id]");
+
+    function updateActiveLink() {
+      let currentSection = "beranda";
+
+      pageSections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 160) {
+          currentSection = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${currentSection}`
+        );
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
+
+    // ====================================
+    // TOMBOL KEMBALI KE ATAS
+    // ====================================
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("show", window.scrollY > 350);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // ====================================
+    // TAHUN OTOMATIS
+    // ====================================
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // ====================================
+    // SALIN EMAIL
+    // Ganti alamat di bawah dengan email kamu.
+    // ====================================
+    const myEmail = "emailkamu@example.com";
+
+    document.getElementById("emailButton").addEventListener("click", async () => {
+      const status = document.getElementById("emailStatus");
+
+      try {
+        await navigator.clipboard.writeText(myEmail);
+        status.textContent = "Email berhasil disalin: " + myEmail;
+      } catch (error) {
+        status.textContent = "Email saya: " + myEmail;
+      }
+    });
+  </script>
+
+</body>
+</html>
