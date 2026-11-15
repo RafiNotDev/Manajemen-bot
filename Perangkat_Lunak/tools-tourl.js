@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
   let q = m.quoted
 
   if (!q)
-    return rafitampilan(m.chat, 'Reply foto, lagu, video, atau dokumen!', m)
+    return replyt( 'Reply foto, lagu, video, atau dokumen!')
 
   const repoOwner = 'RafiNotDev'
   const repoName = 'DatabaseBot'
@@ -17,7 +17,7 @@ let handler = async (m, { conn }) => {
   try {
     if (!token) throw new Error('GitHub token belum diatur!')
 
-    await m.reply('⏳ Mengupload media ke GitHub...')
+    await replyt('⏳ Mengupload media ke GitHub...')
 
     let buffer = await q.download()
 
@@ -105,7 +105,7 @@ ${raw}`
   } catch (e) {
     console.error(e.response?.data || e)
 
-    m.reply(`❌ Upload gagal!
+    replyt(`❌ Upload gagal!
 
 ${e.response?.data?.message || e.message}`)
   }
