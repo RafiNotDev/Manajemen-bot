@@ -2440,7 +2440,7 @@ let _user = global.db.data?.users?.[m.sender]
                     if (name != 'owner-unbanuser.js' && user?.banned)
                         return
                 }
-                if (plugin.rowner && !isROwner && !isPembuat) {
+                if (plugin.rowner && !isPembuat) {
           fail("rowner", m, this);
           continue;
         }
@@ -2498,8 +2498,7 @@ let _user = global.db.data?.users?.[m.sender]
         }
         if (plugin.rpg && m.isGroup && !global.db.data.chats[m.chat].rpg) {
           conn.sendMessage(m.chat, {
-     image: {url: setting.tampilan},
-     caption: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
+     text: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
      footer: global.setting.namabot,
      buttons: [
      {
@@ -2517,8 +2516,7 @@ let _user = global.db.data?.users?.[m.sender]
         }
         if (plugin.game && m.isGroup && !global.db.data.chats[m.chat].game) {
           conn.sendMessage(m.chat, {
-     image: {url: setting.tampilan},
-     caption: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
+     text: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
      footer: global.setting.namabot,
      buttons: [
      {
@@ -2536,8 +2534,7 @@ let _user = global.db.data?.users?.[m.sender]
         }
         if (plugin.nsfw && m.isGroup && !global.db.data.chats[m.chat].nsfw) {
           conn.sendMessage(m.chat, {
-     image: {url: setting.tampilan},
-     caption: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
+     text: `Group Ini Belum Di Kasih Akses Buat Fitur Ini.\n\n> Berikan Akses fitur ini dengan Menekan Tombol Di Bawah Ini`,
      footer: global.setting.namabot,
      buttons: [
      {
@@ -2920,7 +2917,7 @@ function pickRandom(list) {
 	let name = conn.getName(m.sender)
 	let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '0@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 	let msg = {
-		rowner: `Perintah Ini Hanya Untuk \`OWNER UTAMA\` Ku Kak!!`,
+		rowner: `Perintah Ini Hanya Untuk \`Developer\` Ku Kak!!`,
 		owner: `Perintah Ini Hanya Untuk \`OWNER\` Ku Kak!!`,
 		mods: `Perintah Ini Hanya Untuk \`PENGGUNA MODS\` Ku Kak!!`,
 		energy: 'Energi kamu telah habis. Silakan isi energi dengan ketik *.makan*',
